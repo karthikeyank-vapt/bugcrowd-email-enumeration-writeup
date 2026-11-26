@@ -72,7 +72,7 @@ Screenshots below are redacted (program name, usernames, report IDs, domains and
 
 | Triage reclassification (VRT change, priority P4) |
 |---|
-| ![Triage update](screenshots/triage-update.png) |
+| ![Triage update](triage-update.png) |
 
 ---
 
