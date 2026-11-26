@@ -7,7 +7,7 @@
 ![Priority](https://img.shields.io/badge/Priority-P4-yellow?style=for-the-badge)
 ![Category](https://img.shields.io/badge/VRT-Broken%20Access%20Control-red?style=for-the-badge)
 ![Type](https://img.shields.io/badge/Type-Email%20Enumeration-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Closed%20(Duplicate)-lightgrey?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Accepted-brightgreen?style=for-the-badge)
 
 **Researcher:** Karthikeyan K &nbsp;|&nbsp; **Role:** Penetration Tester (VAPT / Web Application Security)
 
@@ -19,7 +19,7 @@
 
 This repository documents a security finding I reported through a **Bugcrowd** bug bounty program. A guest confirmation endpoint did not sufficiently enforce authorization, which allowed cross-account email verification behaviour and led to **email enumeration**.
 
-The finding was initially reported as **Broken Access Control > IDOR**. During triage it was **reclassified as Username/Email Enumeration (Non-Brute Force)** and rated **P4**. It was later closed as a duplicate of an earlier report.
+The finding was initially reported as **Broken Access Control > IDOR**. During triage it was **reclassified as Username/Email Enumeration (Non-Brute Force)** and rated **P4**. The report was **accepted**.
 
 > **Responsible disclosure notice:** The target program, domain, endpoints, parameters, request/response data and any account details are intentionally **withheld**. This write-up focuses on the methodology and lessons learned, not on reproduction steps.
 
@@ -35,7 +35,7 @@ The finding was initially reported as **Broken Access Control > IDOR**. During t
 | **Initial VRT** | BAC > Insecure Direct Object References (IDOR) |
 | **Final VRT** | BAC > Username/Email Enumeration > Non-Brute Force |
 | **Priority** | None to **P4** |
-| **Outcome** | Closed as duplicate |
+| **Outcome** | Accepted (P4) |
 | **Impact** | Email enumeration |
 
 ---
@@ -49,7 +49,7 @@ The finding was initially reported as **Broken Access Control > IDOR**. During t
 | 3 | Submitted a report with clear impact reasoning and evidence |
 | 4 | Triage reclassified the issue from IDOR to Email Enumeration (Non-Brute Force) |
 | 5 | Priority set to **P4** |
-| 6 | Report closed as a duplicate of an existing submission |
+| 6 | Report accepted |
 
 ---
 
@@ -72,7 +72,7 @@ Screenshots below are redacted (program name, usernames, report IDs, domains and
 
 | Triage reclassification (VRT change, priority P4) |
 |---|
-| ![Triage update](triage-update.png) |
+| ![Triage update](screenshots/triage-update.png) |
 
 ---
 
@@ -80,7 +80,7 @@ Screenshots below are redacted (program name, usernames, report IDs, domains and
 
 - **VRT changed:** Broken Access Control > IDOR → Broken Access Control > Username/Email Enumeration > Non-Brute Force
 - **Priority:** none → **P4**
-- **Result:** closed as duplicate
+- **Result:** accepted
 
 The reclassification reflects how triage rates what is **demonstrated**: proven impact, rather than the bug class the researcher believes they found.
 
@@ -89,7 +89,7 @@ The reclassification reflects how triage rates what is **demonstrated**: proven 
 ## Lessons Learned
 
 1. **Triage rates proven impact, not the bug class.** An IDOR hypothesis becomes email enumeration when the demonstrated outcome is account-existence disclosure. Frame the report around impact you can prove.
-2. **Duplicates are part of the process.** A duplicate confirms the finding is real and that other researchers are testing the same surface. Faster reporting is the main lever.
+2. **Reclassification is not rejection.** A lower-severity rating still means the issue was valid. Understanding why triage re-rated it makes the next report stronger.
 3. **Guest flows deserve the same authorization scrutiny as authenticated ones.** Unauthenticated endpoints are easy to overlook during design and review.
 4. **Write the impact section first.** Strong impact reasoning up front reduces back-and-forth with triage.
 
